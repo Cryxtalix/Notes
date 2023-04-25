@@ -1,6 +1,6 @@
-#Important notes on safe(r) string functions
+# Important notes on safe(r) string functions
 
-##strncpy()
+## strncpy()
 * Allows specifying a size.
 * Will overwrite strings already in the buffer.
 * A longer string will be truncated to the specified size. 
@@ -9,7 +9,7 @@
 * Specifying size - 1 for a large string is still insufficient as \0 will still be missing. \0 has to already exist at the last position or be manually inserted.
 * TLDR: Only prevents writing beyond the specified size. ensuring the existence of \0 is up to the user.
 
-##snprintf()
+## snprintf()
 * Allows specifying a maximum length of string to be written to.
 * Allows formatting and joining multiple strings together.
 * Will overwrite strings already in the buffer.
@@ -20,13 +20,13 @@
 * Might be slower than strcpy family of operations.
 * TLDR: Besides the performance issue, seems to work very well.
 
-##strcat()
+## strcat()
 * Concatenates to an existing string and does not take size into account.
 * Will gladly overwrite neighbouring memory addresses.
 * Will always include \0 at the end, so the string might still temporarily work as expected. The overwritten memory segments might eventually cause an error.
 * TLDR: Dangerous to use without a lot of checking.
 
-##strncat()
+## strncat()
 * Allows specifying a maximum size of string to be concatenated.
 * A longer string will be truncated to the specified size, with \0 appended to the end. The resultant string is one greater than the specified size.
 * If specified length of string after concatenation is longer than the buffer, it will gladly overwrite neighbouring memory addresses.
