@@ -7,7 +7,7 @@
 * A shorter string will be null padded to the specified size.
 * If string is not one less than the specified size, there will be no \0.
 * Specifying size - 1 for a large string is still insufficient as \0 will still be missing. \0 has to already exist at the last position or be manually inserted.
-* TLDR: Only prevents writing beyond the specified size. ensuring the existence of \0 is up to the user.
+* TLDR: Only prevents writing beyond the specified size. Ensuring the existence of \0 is up to the user.
 
 ## snprintf()
 * Allows specifying a maximum length of string to be written to.
