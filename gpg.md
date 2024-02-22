@@ -39,7 +39,7 @@ Filename does not matter
 
 $`gpg --import public.pgp`
 
-### Create revocation certificate:
+### Create revocation certificate
 
 $`gpg --output revoke.asc --gen-revoke "email"`
 
@@ -56,9 +56,17 @@ $`gpg --recv-keys "keyid"`
 To send key to (default) keyserver:
 
 * Get keyid with:
-	* $`gpg --list-keys --keyid-format LONG "email"`
+	* $`gpg --list-keys --keyid-format=long "email"`
 	* keyid is after key type, e.g. ed25519/"keyid"
 * Send key with:
 	* $`gpg --send-keys "keyid"`
 
 Running "git log --show-signature" and you can check if git commits are certified.
+
+## Adding keys to git
+
+* Get keyid with:
+	* $`gpg --list-keys --keyid-format=long "email"`
+	* keyid is after key type, e.g. ed25519/"keyid"
+* Set primary signing key:
+	* $`git config --global user.signingkey keyid`
